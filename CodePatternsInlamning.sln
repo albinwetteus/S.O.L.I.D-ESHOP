@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePatternsInlamning", "CodePatternsInlamning\CodePatternsInlamning.csproj", "{635814D4-EEE6-46C4-8A56-D872ECB54381}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{635814D4-EEE6-46C4-8A56-D872ECB54381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635814D4-EEE6-46C4-8A56-D872ECB54381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635814D4-EEE6-46C4-8A56-D872ECB54381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635814D4-EEE6-46C4-8A56-D872ECB54381}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1C05E1C-D3EC-48C1-9E51-80E49E4D63C8}
+	EndGlobalSection
+EndGlobal
