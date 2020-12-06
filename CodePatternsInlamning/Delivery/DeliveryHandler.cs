@@ -9,12 +9,16 @@ namespace CodePatternsInlamning
     {
         private readonly IOrder _order;
         private readonly IDeliveryMethods _deliveryMethods;
+        private readonly IOrderSummary _orderSummary;
+        private readonly IStockBalanceHandler _stockBalanceHandler;
 
 
-        public DeliveryHandler(IOrder order, IDeliveryMethods deliveryMethods)
+        public DeliveryHandler(IOrder order, IDeliveryMethods deliveryMethods, IOrderSummary orderSummary, IStockBalanceHandler stockBalanceHandler)
         {
             _order = order;
             _deliveryMethods = deliveryMethods;
+            _orderSummary = orderSummary;
+            _stockBalanceHandler = stockBalanceHandler;
         }
 
 
@@ -36,34 +40,8 @@ namespace CodePatternsInlamning
                 _deliveryMethods.DigitalDelivery.SendToCustomer(_order);
             }
 
-            PrintOrderSummary();
-            SubractFromStockBalance();
-        }
-
-
-        private void PrintOrderSummary()
-        {
-            Console.WriteLine($"\nSummary of your order with  number: {_order.OrderId}:");
-            int i = 1;
-            foreach (var p in _order.PhysicalCart)
-            {
-                Console.WriteLine($"    {i}. {p.Title}");
-                i++;
-            }
-
-            foreach (var p in _order.DigitalCart)
-            {
-                Console.WriteLine($"    {i}. {p.Title}");
-                i++;
-            }
-        }
-
-        private void SubractFromStockBalance()
-        {
-            foreach (var product in _order.PhysicalCart)
-            {
-                product.StorageAmount -= 1;
-            }
+            _orderSummary.PrintOrderSummary(_order);
+            _stockBalanceHandler.SubractFromStockBalance(_order);
         }
     }
 }

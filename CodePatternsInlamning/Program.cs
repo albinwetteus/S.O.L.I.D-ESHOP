@@ -36,7 +36,7 @@ namespace CodePatternsInlamning
             );
 
             Factory.ChoosePaymentMethod()
-                .Invoice(order, deliveryMethods)
+                .Klarna(order, deliveryMethods)
                 .PayTheOrder();
 
 

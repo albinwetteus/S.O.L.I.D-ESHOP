@@ -28,8 +28,7 @@ namespace CodePatternsInlamning
             return new PaymentMethod();
         }
 
-        public static IDeliveryMethods ChooseDeliveryMethods(IPhysicalDelivery physicalDeliveryMethod,
-            IDigitalDelivery digitalDeliveryMethod)
+        public static IDeliveryMethods ChooseDeliveryMethods(IPhysicalDelivery physicalDeliveryMethod, IDigitalDelivery digitalDeliveryMethod)
         {
             return new DeliveryMethods(physicalDeliveryMethod, digitalDeliveryMethod);
         }
@@ -38,15 +37,25 @@ namespace CodePatternsInlamning
         {
             return new PhysicalDeliveryMethod();
         }
-
+        
         public static IDigitalDeliveryMethod ChooseDigitalDeliveryMethod()
         {
             return new DigitalDeliveryMethod();
         }
 
-        public static DeliveryHandler CreateDeliveryHandler(IOrder order, IDeliveryMethods deliveryMethods)
+        public static IDeliveryHandler CreateDeliveryHandler(IOrder order, IDeliveryMethods deliveryMethods)
         {
-            return new DeliveryHandler(order, deliveryMethods);
+            return new DeliveryHandler(order, deliveryMethods, Factory.CreateOrderSummary(), Factory.CreateStockBalanceHandler());
+        }
+
+        private static IStockBalanceHandler CreateStockBalanceHandler()
+        {
+            return new StockBalanceHandler();
+        }
+
+        private static IOrderSummary CreateOrderSummary()
+        {
+            return new OrderSummary();
         }
     }
 }

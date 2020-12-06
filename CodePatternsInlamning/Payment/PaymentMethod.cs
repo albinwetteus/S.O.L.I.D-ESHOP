@@ -21,5 +21,10 @@ namespace CodePatternsInlamning
         {
             return new InvoicePayment(order, deliveryMethods);
         }
+
+        public IPayment Klarna(IOrder order, IDeliveryMethods deliveryMethods)
+        {
+            return new KlarnaPayment(order, deliveryMethods);
+        }
     }
 }
